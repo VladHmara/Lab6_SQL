@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+        <property name="hibernate.connection.driver_class">
+            org.postgresql.Driver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:postgresql://176.36.98.229:5432/postgres
+        </property>
+        <property name="hibernate.connection.username">
+            postgres
+        </property>
+        <property name="hibernate.connection.password">
+            password
+        </property>
+
+        <mapping resource="main/resources/hibernate/Chat.hbm.xml"/>
+        <mapping resource="main/resources/hibernate/ChatUser.hbm.xml"/>
+        <mapping resource="main/resources/hibernate/Message.hbm.xml"/>
+        <mapping resource="main/resources/hibernate/User.hbm.xml"/>
+        <mapping resource="main/resources/hibernate/UserHash.hbm.xml"/>
+
+
+    </session-factory>
+</hibernate-configuration>

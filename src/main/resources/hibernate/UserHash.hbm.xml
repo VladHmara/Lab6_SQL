@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="main.java.items.UserHash" table="userHash">
+        <meta attribute="class-description">
+            This class contains developer's details.
+        </meta>
+        <id name="Hash" type="string" column="hash"/>
+        <property name="UserId" column="user_id" type="int"/>
+    </class>
+</hibernate-mapping>
