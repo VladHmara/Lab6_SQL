@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">
-            org.hibernate.dialect.MySQLDialect
+            org.hibernate.dialect.PostgreSQLDialect
         </property>
         <property name="hibernate.connection.driver_class">
             org.postgresql.Driver
@@ -21,11 +21,11 @@
             password
         </property>
 
-        <mapping resource="main/resources/hibernate/Chat.hbm.xml"/>
-        <mapping resource="main/resources/hibernate/ChatUser.hbm.xml"/>
-        <mapping resource="main/resources/hibernate/Message.hbm.xml"/>
-        <mapping resource="main/resources/hibernate/User.hbm.xml"/>
-        <mapping resource="main/resources/hibernate/UserHash.hbm.xml"/>
+        <mapping resource="hibernate/Chat.hbm.xml"/>
+        <mapping resource="hibernate/ChatUser.hbm.xml"/>
+        <mapping resource="hibernate/Message.hbm.xml"/>
+        <mapping resource="hibernate/User.hbm.xml"/>
+        <mapping resource="hibernate/UserHash.hbm.xml"/>
 
 
     </session-factory>

@@ -1,9 +1,10 @@
-package main.java.hibernateMethods;
+package hibernateMethods;
 
-import main.java.run.MyConnection;
+
+import run.MyConnection;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import main.java.items.*;
+import items.*;
 import java.util.List;
 
 public class ChatUserDB {
@@ -18,6 +19,7 @@ public class ChatUserDB {
         transaction.commit();
         session.close();
     }
+    public static void addChatUser(ChatUser chatUser) {addChatUser(chatUser.getId(),chatUser.getChatId(),chatUser.getUserId());}
 
     public static void updateChatUser(int id, int chatId, int userId) {
         Session session = MyConnection.sessionFactory.openSession();
@@ -43,12 +45,12 @@ public class ChatUserDB {
         session.close();
     }
 
-    public static List<ChatUser> listChatUsers() {
+    public static List listChatUsers() {
         Session session = MyConnection.sessionFactory.openSession();
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        List<ChatUser> chatUsers = session.createSQLQuery("SELECT * FROM chatUser").list();
+        List chatUsers = session.createQuery("FROM items.ChatUser").list();
 
         transaction.commit();
         session.close();

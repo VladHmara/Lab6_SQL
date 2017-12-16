@@ -1,9 +1,12 @@
-package main.java.items;
+package items;
+
 
 public class ChatUser {
     public int Id;
     public int ChatId;
     public int UserId;
+
+    public ChatUser(){}
 
     public ChatUser(int id, int chatId, int userId){
         Id = id;

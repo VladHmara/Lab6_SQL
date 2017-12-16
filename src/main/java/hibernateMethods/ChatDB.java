@@ -1,9 +1,9 @@
-package main.java.hibernateMethods;
+package hibernateMethods;
 
-import main.java.run.MyConnection;
+import run.MyConnection;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import main.java.items.*;
+import items.*;
 import java.util.List;
 
 public class ChatDB {
@@ -46,12 +46,12 @@ public class ChatDB {
         session.close();
     }
 
-    public static List<Chat> listChats() {
+    public static List listChats() {
         Session session = MyConnection.sessionFactory.openSession();
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        List<Chat> chats = session.createSQLQuery("SELECT * FROM chat").list();
+        List chats = session.createQuery("FROM items.Chat").list();
 
         transaction.commit();
         session.close();

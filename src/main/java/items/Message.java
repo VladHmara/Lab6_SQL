@@ -1,10 +1,13 @@
-package main.java.items;
+package items;
+
 
 public class Message {
     public int Id;
     public int FromUserId;
     public int ToChatId;
     public String Content;
+
+    public Message(){}
 
     public Message(int id, int fromUserId, int toChatId, String content){
         Id = id;

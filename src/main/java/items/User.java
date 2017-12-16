@@ -1,9 +1,12 @@
-package main.java.items;
+package items;
+
 
 public class User {
     public int Id;
     public String FirstName;
     public String LastName;
+
+    public User(){}
 
     public User(int id, String firstName, String lastName){
         Id = id;
@@ -23,10 +26,10 @@ public class User {
     public void setFirstName(String firstName) {
         FirstName = firstName;
     }
-    public String getLastdName() {
+    public String getLastName() {
         return LastName;
     }
-    public void setLastdName(String lastdName) {
+    public void setLastName(String lastdName) {
         LastName = lastdName;
     }
 

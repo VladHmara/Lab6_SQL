@@ -1,9 +1,10 @@
-package main.java.hibernateMethods;
+package hibernateMethods;
 
-import main.java.run.MyConnection;
+
+import run.MyConnection;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import main.java.items.*;
+import items.*;
 import java.util.List;
 
 public class UserHashDB {
@@ -18,36 +19,37 @@ public class UserHashDB {
         transaction.commit();
         session.close();
     }
+    public static void addUserHash(UserHash userHash) {addUserHash(userHash.getHash(),userHash.getUserId());}
 
     public static void updateUserHash(String hash, int userId) {
         Session session = MyConnection.sessionFactory.openSession();
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        UserHash userHash = (UserHash) session.get(UserHash.class, userId);
-        userHash.setHash(hash);
+        UserHash userHash = (UserHash) session.get(UserHash.class, hash);
+        userHash.setUserId(userId);
         session.update(userHash);
         transaction.commit();
         session.close();
     }
 
-    public static void removeUserHash(int userId) {
+    public static void removeUserHash(String hash) {
         Session session = MyConnection.sessionFactory.openSession();
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        UserHash userHash = (UserHash) session.get(UserHash.class, userId);
+        UserHash userHash = (UserHash) session.get(UserHash.class, hash);
         session.delete(userHash);
         transaction.commit();
         session.close();
     }
 
-    public static List<UserHash> listUserHashs() {
+    public static List listUserHashs() {
         Session session = MyConnection.sessionFactory.openSession();
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        List<UserHash> userHashs = session.createSQLQuery("SELECT * FROM userHash").list();
+        List userHashs = session.createQuery("FROM items.UserHash").list();
 
         transaction.commit();
         session.close();

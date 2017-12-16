@@ -1,8 +1,10 @@
-package main.java.items;
+package items;
 
 public class Chat {
     public int Id;
     public String Name;
+
+    public Chat(){}
 
     public Chat(int id, String name){
         Id = id;

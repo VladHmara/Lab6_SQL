@@ -1,9 +1,10 @@
-package main.java.hibernateMethods;
+package hibernateMethods;
 
-import main.java.run.MyConnection;
+
+import run.MyConnection;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import main.java.items.*;
+import items.*;
 import java.util.List;
 
 public class MessageDB {
@@ -13,11 +14,14 @@ public class MessageDB {
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
+        if(session.get(Chat.class,toChatId) == null);
+            Chat chat = new Chat(toChatId,"NewChat");
         Message message = new Message(id, fromUserId, toChatId, content);
         session.save(message);
         transaction.commit();
         session.close();
     }
+    public static void addMessage(Message message) {addMessage(message.getId(),message.getFromUserId(),message.getToChatId(),message.getContent());}
 
     public static void updateMessage(int id, String content) {
         Session session = MyConnection.sessionFactory.openSession();
@@ -42,12 +46,12 @@ public class MessageDB {
         session.close();
     }
 
-    public static List<Message> listMessages() {
+    public static List listMessages() {
         Session session = MyConnection.sessionFactory.openSession();
         Transaction transaction = null;
 
         transaction = session.beginTransaction();
-        List<Message> messages = session.createSQLQuery("SELECT * FROM message").list();
+        List messages = session.createQuery("FROM items.Message").list();
 
         transaction.commit();
         session.close();

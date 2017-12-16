@@ -1,4 +1,4 @@
-package main.java.run;
+package run;
 
 import liquibase.Contexts;
 import liquibase.LabelExpression;
@@ -8,7 +8,7 @@ import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
 import liquibase.resource.FileSystemResourceAccessor;
-import main.java.hibernateMethods.ChatDB;
+import hibernateMethods.*;
 
 import java.io.File;
 import java.sql.SQLException;

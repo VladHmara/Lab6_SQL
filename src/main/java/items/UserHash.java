@@ -1,8 +1,11 @@
-package main.java.items;
+package items;
+
 
 public class UserHash {
     public String Hash;
     public int UserId;
+
+    public UserHash(){}
 
     public UserHash(String hash, int userId){
         Hash = hash;
